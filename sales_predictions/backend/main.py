@@ -10,7 +10,7 @@ load_dotenv()
 
 api_key = os.getenv("WEATHERBIT_API_KEY")
 
-# data processing
+# * data processing
 
 # load sales data
 sales_data = pd.read_csv("")
@@ -29,7 +29,7 @@ weather_data = fetch_weather_data("City", "Country", api_key)
 weather_df = pd.DataFrame(weather_data["data"])
 
 
-# feature engineering
+# * feature engineering
 
 # merge sales and weather data
 data = pd.merge(sales_data, weather_df, left_on="date", right_on="datetime")
@@ -39,7 +39,7 @@ features = data[["temperature", "precipitation", "humidity"]]
 target = data["sales"]
 
 
-# model training
+# * model training
 
 # split data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(
@@ -51,7 +51,7 @@ model = LinearRegression()
 model.fit(X_train, y_train)
 
 
-# prediction
+# * prediction
 
 # prediction sales
 predictions = model.predict(X_test)
