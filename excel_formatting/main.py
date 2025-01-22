@@ -1,7 +1,7 @@
 import pandas as pd
 
 # load excel file
-file_path = "excel_formatting/storelist.xlsx"
+file_path = ""
 df = pd.read_excel(file_path)
 
 df[["numbers", "product", "city"]] = df.iloc[:, 0].str.extract(
