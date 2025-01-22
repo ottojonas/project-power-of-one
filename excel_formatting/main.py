@@ -4,8 +4,9 @@ import pandas as pd
 file_path = "excel_formatting/excel-sheets/modified_storelist.xlsx"
 df = pd.read_excel(file_path)
 
+# extract full 12-digit number, product, and city into separate columns
 df[["numbers", "product", "city"]] = df.iloc[:, 0].str.extract(
-    r"(\d+)\s+(Blackthorn Sea Salt Flks)\s+(.+)"
+    r"(\d{8} / \d{4})\s+(Blackthorn Sea Salt Flks)\s+(.+)"
 )
 
 # save to new excel file
